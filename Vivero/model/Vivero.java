@@ -112,12 +112,32 @@ public class Vivero{
 	
 	public String fruitsInVivero(){
 		String frutas = "";
+		String fruits[] = new String[36];
+		for(int i = 0; i < 36; i++)
+			fruits[i]="";
+		
+		int counter = 0;
+		boolean fruitAdded;
 		for(int i = 0; i < ROWS; i++){
 			for (int k = 0; k < COLUMNS; k++){
-				if(plantas[i][k]!=null && plantas[i][k] instanceof Frutal){
-					frutas += getPlantFruitName(i,k) + "\n";
+				if(plantas[i][k]!=null&&plantas[i][k] instanceof Frutal){
+					fruitAdded = false;
+					for(int h = 0; h < 36; h++){
+						if(fruits[h].equalsIgnoreCase(getPlantFruitName(i,k))){
+							fruitAdded = true;
+						}
+					}
+					if(!fruitAdded){
+							fruits[counter]=getPlantFruitName(i,k);
+							counter++;
+					}
 				}
 			}
+		}
+		
+		for(int i = 0; i < 36; i++){
+			if(fruits[i]!="")
+				frutas += fruits[i]+"\n";
 		}
 		if(frutas=="")
 			frutas = "No hay frutas amiguito";

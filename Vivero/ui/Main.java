@@ -52,18 +52,23 @@ public class Main{
 					for(int i = 0; i < Vivero.ROWS; i++){
 						for(int k = 0; k < vivero.COLUMNS; k++){
 							if(vivero.verifyPlanta(i,k)){
+								System.out.println("-----------");
 								System.out.println(pos+" "+vivero.getPlantName(i,k));
 								System.out.println(vivero.getPlantCost(i,k));
 								if(vivero.typeOfPlant(i,k))
 									System.out.println(vivero.getPlantFruitName(i,k));
 								else
 									System.out.println(vivero.getPlantHeight(i,k));
+								pos++;
+								System.out.println("---------");
 							}
 						}
 					}
 				break;
 				case 3:
+					System.out.println("---Frutas---");
 					System.out.println(vivero.fruitsInVivero());
+					System.out.println("------------");
 				break;
 				case 4:
 					System.out.println(vivero.plantsOneMeterTall());
